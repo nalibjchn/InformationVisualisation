@@ -1,0 +1,21 @@
+.yearbackgroud,.yearbackgroud_trail {
+    font-size: 150px;
+    font-family: cursive;
+    font-variant-numeric: diagonal-fractions;
+    color: lightgrey;
+    opacity: 0.1;
+    position: relative;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 200px;
+    height: 100px;
+    padding: 2px;
+    font: 20px sans-serif;
+    background: white;
+    border: 10px;
+    border-radius: 8px;
+    pointer-events: none;
+}

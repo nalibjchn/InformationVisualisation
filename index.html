@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>D3: Moving Line Charts</title>
+    <script src="./d3js/d3-color.v1.min.js"></script>
+    <script src="./d3js/d3-interpolate.v1.min.js"></script>
+    <script src="./d3js/d3-scale-chromatic.v1.min.js"></script>
+    <script src="./d3js/d3-simple-slider.js"></script>
+    <script src="./d3js/d3.v5.min.js"></script>
+	<link href="./css/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+	<div>
+		<h2 style="color:#3498db;">COMP40610 Information Visualisation Assignment: Channelling Hans</h2>
+		<h3>&copy;<strong>2018/2019 Na Li (17210325), Krunoslav Plecko (17204522).</strong></h3>
+		<!--slider and Region legend-->
+		<table>
+			<tr>
+				<td id="playyear">
+					<button id="btnplay" onclick="onclickPlay(this.id)" style="height:60px;width:60px;background-color:transparent; border-color:transparent;">
+						<img src="img/icon/start.gif" style="height:60px;width:60px" alt="Submit">
+					</button>
+					<button id="btnpause" onclick="onclickPlay(this.id)" style="display: none" style="height:60px;width:60px;background-color:transparent; border-color:transparent;">
+						<img src="img/icon/pause.gif" style="height:50px;width:50px" alt="Submit">
+					</button>
+				</td>
+				<td>							  
+					<strong style="font-size: 12px">Please double click to manually change the year</strong>
+					<div id="slider" onclick="onclickchangeyear()" onmouseover="">
+					</div>
+				</td>
+				<td></td>
+				<td></td>
+				<td>
+				</td>
+				<td>
+					<table>
+						<strong> Select Region:</strong>
+						<br>
+
+						<tr>
+							<td>
+								<button type="submit" style="background-color:#bf5b17; border-color:seashell; width: 15px;height: 15px;" id="leg_asia"
+								 onclick="bubblebylegend(this.id)" ;>
+								</button> Emerging and Developing Asia
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" style="background-color:#f0027f; border-color:seashell; width: 15px;height: 15px;" id="leg_economies"
+								 onclick="bubblebylegend(this.id)" ;>
+								</button> Advanced economies
+							</td>
+						<tr>
+							<td>
+								<button type="submit" style="background-color:#386cb0; border-color:seashell; width: 15px;height: 15px;" id="leg_common"
+								 onclick="bubblebylegend(this.id)" ;>
+								</button> Commonwealth of Independent States
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" style="background-color:#ffff99; border-color:seashell; width: 15px;height: 15px;" id="leg_latin"
+								 onclick="bubblebylegend(this.id)" ;>
+								</button> Latin America and the Caribbean
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" style="background-color:#fdc086; border-color:seashell; width: 15px;height: 15px;" id="leg_africa"
+								 onclick="bubblebylegend(this.id)" ;>
+								</button> Sub-Saharan Africa
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" style="background-color:#beaed4; border-color:seashell; width: 15px;height: 15px;" id="leg_middle"
+								 onclick="bubblebylegend(this.id)" ;>
+								</button> Middle East, North Africa, and Pakistan
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" style="background-color:#7fc97f; border-color:seashell; width: 15px;height: 15px;" id="leg_europe"
+								 onclick="bubblebylegend(this.id)" ;>
+								</button> Emerging and Developing Europe
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<button type="submit" style="border-color:seashell; width: 50px;height: 25px;" id="leg_reset" onclick="bubblebylegend(this.id)"
+								 ;>Reset
+								</button>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<h3> Trail Bubble Chart for selected Country
+						<select id="select_country" onchange="countrychange()">
+						</select></h3>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+	<div class="core_code">
+		<script src="./js/drawsvg.js" charset="utf-8"></script>
+		<div id="core_code"></div>
+		<script src="./js/bubble.js" charset="utf-8">	</script>
+	</div>
+	<div>
+		<table id="blabla">
+			<tr>
+				<td>
+					<div id="bar_chart"></div>
+				</td>
+				<td>
+					<strong>Select country:</strong>
+					<div>
+						<div id="country_choice_list"></div>
+					</div>
+					<div class="button-bar">
+						<button id="clear" onclick="countryUncheck()">Clear</button>
+					</div>
+					<script src="js/bar.js"></script>
+				</td>
+			</tr>
+	</div>
+</body>
+
+</html>
